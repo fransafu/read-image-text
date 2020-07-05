@@ -1,0 +1,7 @@
+type Image {
+  text: String!
+}
+
+type Query {
+  image(url: String!): Image
+}
