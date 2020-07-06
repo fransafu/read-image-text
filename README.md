@@ -1,5 +1,7 @@
 # read-image-text
 
+![Deploy project read-image-text to Cloud Run (GCP)](https://github.com/fransafu/read-image-text/workflows/Deploy%20project%20read-image-text%20to%20Cloud%20Run%20(GCP)/badge.svg?branch=master)
+
 The project is an example of implementation of a simple GraphQL API with an artificial intelligence model; The model is owned by the GitHub user kurapan and you can check the repository [click here](https://github.com/kurapan/CRNN).
 
 The main idea is to make a simple request with the URL of an image, the backend downloads the image and tries to read, and the result is solved by the tartiflette library.
