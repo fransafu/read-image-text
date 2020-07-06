@@ -33,6 +33,8 @@ class ModelReadImageText(ModelCRNN):
 
     def evaluate(self, url):
         img = self.__load_image_from_url(url)
+        if img.size == 0:
+            return "Sorry. we can't download the image. Check the url and Try again"
         img = self.__preprocess_image(img)
         return self.__predict_text(img)
 
@@ -40,9 +42,12 @@ class ModelReadImageText(ModelCRNN):
         return cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
 
     def __load_image_from_url(self, url):
-        resp = requests.get(url, stream=True).raw
-        image = np.asarray(bytearray(resp.read()), dtype="uint8")
-        return cv2.imdecode(image, cv2.IMREAD_GRAYSCALE)
+        try:
+            resp = requests.get(url, stream=True).raw
+            image = np.asarray(bytearray(resp.read()), dtype="uint8")
+            return cv2.imdecode(image, cv2.IMREAD_GRAYSCALE)
+        except requests.exceptions.RequestException:
+            return np.array([])
 
     def __preprocess_image(self, img):
         if img.shape[1] / img.shape[0] < 6.4:
