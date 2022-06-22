@@ -24,7 +24,7 @@ Markdown==3.2.2
 mccabe==0.6.1
 more-itertools==8.4.0
 multidict==4.7.6
-numpy==1.19.0
+numpy==1.22.0
 opencv-python==4.2.0.34
 packaging==20.4
 pluggy==0.13.1
